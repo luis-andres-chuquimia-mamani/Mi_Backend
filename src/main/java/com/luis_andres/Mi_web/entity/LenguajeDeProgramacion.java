@@ -7,17 +7,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "tecnologias")
+@Table(name = "lenguajes_de_programacion")
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
 @Builder
-public class Tecnologia {
+public class LenguajeDeProgramacion {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long idTecnologia;
+    private Long idLenguajeDeProgramacion;
     private String nombre;
 
 
