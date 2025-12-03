@@ -1,6 +1,7 @@
 package com.luis_andres.Mi_web.controller;
 
 import com.luis_andres.Mi_web.entity.Tecnologia;
+import com.luis_andres.Mi_web.error.TecnologiaNotFoundException;
 import com.luis_andres.Mi_web.service.TecnologiaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,11 @@ public class TecnologiaController {
         return tecnologiaService.listarTecnologias();
     }
 
+    @GetMapping("/encontrarTecnologia/{id}")
+    public  Tecnologia encontrarTecnologia(@PathVariable Long id) throws TecnologiaNotFoundException {
+        return tecnologiaService.encontrarTecnologia(id);
+    }
+
     @PostMapping("/registrarTecnologia")
     public Tecnologia registrarTecnologia(@RequestBody Tecnologia t){
         return tecnologiaService.registrarTecnologia(t);
@@ -42,5 +48,7 @@ public class TecnologiaController {
         tecnologiaService.eliminarTecnologia(id);
         return "Successfully";
     }
+
+
 
 }
