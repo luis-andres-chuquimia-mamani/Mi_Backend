@@ -1,6 +1,7 @@
 package com.luis_andres.Mi_web.controller;
 
 import com.luis_andres.Mi_web.entity.LenguajeDeProgramacion;
+import com.luis_andres.Mi_web.error.LenguajeDeProgramacionNotFoudException;
 import com.luis_andres.Mi_web.service.LenguajeDeProgracionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,11 @@ public class LenguajeDeProgramacionController {
     @GetMapping("/listarLenguajesDeProgramacion")
     public List<LenguajeDeProgramacion> listarlenguajesDeProgramacion(){
         return lenguajeDeProgracionService.listarLenguajesDeProgramacion();
+    }
+
+    @GetMapping("/obtenerLenguajeDeProgramacion/{idldp}")
+    public LenguajeDeProgramacion obtenerLenguajeDeProgramacion(@PathVariable Long idldp) throws LenguajeDeProgramacionNotFoudException {
+        return lenguajeDeProgracionService.obtenerLenguajeDeProgramacion(idldp);
     }
 
     @PutMapping("/actualizarLenguajeDeProgramacion/{idldp}")

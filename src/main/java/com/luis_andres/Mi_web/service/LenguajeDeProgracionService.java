@@ -1,6 +1,7 @@
 package com.luis_andres.Mi_web.service;
 
 import com.luis_andres.Mi_web.entity.LenguajeDeProgramacion;
+import com.luis_andres.Mi_web.error.LenguajeDeProgramacionNotFoudException;
 
 import java.util.List;
 
@@ -10,5 +11,7 @@ public interface LenguajeDeProgracionService {
     List<LenguajeDeProgramacion> listarLenguajesDeProgramacion();
     LenguajeDeProgramacion actualizarLenguajeDeProgramacion(LenguajeDeProgramacion ldp, Long idLenguajeDeProgramacion);
     void eliminarLenguajeDeProgramacion(Long idLenguajeDeProgramacion);
+
+    LenguajeDeProgramacion obtenerLenguajeDeProgramacion(Long idldp) throws LenguajeDeProgramacionNotFoudException;
 
 }

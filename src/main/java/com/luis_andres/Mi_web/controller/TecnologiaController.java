@@ -3,6 +3,7 @@ package com.luis_andres.Mi_web.controller;
 import com.luis_andres.Mi_web.entity.Tecnologia;
 import com.luis_andres.Mi_web.error.TecnologiaNotFoundException;
 import com.luis_andres.Mi_web.service.TecnologiaService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +35,7 @@ public class TecnologiaController {
     }
 
     @PostMapping("/registrarTecnologia")
-    public Tecnologia registrarTecnologia(@RequestBody Tecnologia t){
+    public Tecnologia registrarTecnologia(@Valid @RequestBody Tecnologia t){
         return tecnologiaService.registrarTecnologia(t);
     }
 

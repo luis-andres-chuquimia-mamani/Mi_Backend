@@ -1,10 +1,12 @@
 package com.luis_andres.Mi_web.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name = "tecnologias")
@@ -18,6 +20,9 @@ public class Tecnologia {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  Long idTecnologia;
+
+    @NotBlank(message = "Ingrese la Tecnologia")
+    @Length(min = 4, max =10)
     private String nombre;
 
 
